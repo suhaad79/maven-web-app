@@ -7,7 +7,7 @@ pipeline{
     stage('1GetCode'){
       steps{
         sh "echo 'cloning the latest application version' "
-        git branch: 'feature', credentialsId: 'gitHubCredentials', url: 'https://github.com/LandmakTechnology/maven-web-application'
+        git "https://github.com/suhaad79/maven-web-application"
       }
     }
     stage('3Test+Build'){
@@ -31,31 +31,31 @@ pipeline{
     } 
     stage('8deploy2prod'){
       steps{
-        deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://35.170.249.131:8080/')], contextPath: null, war: 'target/*war'
+        deploy adapters: [tomcat8(credentialsId: 'tomcat-credentials', path: '', url: 'http://54.85.126.59:8080')], contextPath: null, war: 'target/*war'
       }
     }
 }
   post{
     always{
-      emailext body: '''Hey guys
-Please check build status.
-Thanks
-Landmark 
-+1 437 215 2483''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
+      emailext body: '''Hello, 
+Please check build status
+
+thanks
+suhaad''', recipientProviders: [developers()], subject: 'success', to: 'sjay4a@gmail.com'
     }
     success{
-      emailext body: '''Hey guys
-Good job build and deployment is successful.
-Thanks
-Landmark 
-+1 437 215 2483''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
+      emailext body: '''Hello, 
+Build and deployment succesful. Good job
+
+thanks
+suhaad''', recipientProviders: [developers()], subject: 'success', to: 'sjay4a@gmail.com'
     } 
     failure{
-      emailext body: '''Hey guys
-Build failed. Please resolve issues.
-Thanks
-Landmark 
-+1 437 215 2483''', recipientProviders: [buildUser(), developers()], subject: 'success', to: 'paypal-team@gmail.com'
+      emailext body: '''Hello, 
+Build failed. Please check status
+
+thanks
+suhaad''', recipientProviders: [developers()], subject: 'success', to: 'sjay4a@gmail.com'
     }
   } 
   */
