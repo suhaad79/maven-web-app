@@ -96,13 +96,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Releases Nexus Repository</name>
-	      <url>http://34.201.134.206:8081/repository/freestyle-release/</url>
+	      <url>http://34.228.81.196:8081/repository/test-release/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Landmark Technologies Snapshot Nexus Repository </name>
-	      <url>http://34.201.134.206:8081/repository/freestyle-snapshot/</url>
+	      <url>http://34.228.81.196:8081/repository/test-snapshot/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
